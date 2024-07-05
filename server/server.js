@@ -24,7 +24,7 @@ app.post('/referrals', async (req, res) => {
         referralCode,
       },
     });
-    console.log('referal tried!')
+    console.log('referal sent!')
 
     sendMail(
         email,
