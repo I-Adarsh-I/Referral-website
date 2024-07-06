@@ -83,9 +83,9 @@ const NavbarTop = React.forwardRef((props, ref) => {
                 <span>Log In</span>
               </Button>
               <Button
-                variant="gradient"
+                variant="filled"
                 size="md"
-                className="hidden lg:inline-block font-semibold normal-case"
+                className="hidden lg:inline-block font-semibold normal-case bg-primaryColor"
               >
                 <span>Sign in</span>
               </Button>
@@ -142,9 +142,9 @@ const NavbarTop = React.forwardRef((props, ref) => {
             </Button>
             <Button
               fullWidth
-              variant="gradient"
+              variant="filled"
               size="sm"
-              className="normal-case font-medium"
+              className="normal-case font-medium bg-primaryColor"
             >
               <span>Try it free</span>
             </Button>

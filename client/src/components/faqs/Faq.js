@@ -45,14 +45,6 @@ const Faq = () => {
               billing. Can't find what you're looking for? Check out our full
               documentation.
             </p>
-            <div className="button-grp flex gap-4">
-              <Button
-                variant="text"
-                size="md"
-                className="normal-case text-md text-xs md:text-lg"
-              >
-                View all questions
-              </Button>
               <Button
                 variant="filled"
                 size="md"
@@ -60,7 +52,6 @@ const Faq = () => {
               >
                 Get in touch
               </Button>
-            </div>
           </div>
           <div>
             <Accordion
