@@ -2,9 +2,11 @@ const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 const bodyParser = require('body-parser');
 const sendMail = require('./mailer')
+const cors = require('cors');
 require('dotenv').config()
 
 const app = express();
+app.use(cors());
 const prisma = new PrismaClient();
 
 app.use(bodyParser.json());
@@ -17,6 +19,25 @@ app.get('/', async(req,res) => {
 app.post('/referrals', async (req, res) => {
   try {
     const { name, email, referralCode } = req.body;
+    if(!name || !email || !referralCode){
+      return res.status(400).json({error: 'Mandatory fields are empty'})
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+
+    const isEmailExist = await prisma.referral.findUnique({
+      where:{
+        email: email
+      }
+    })
+
+    if(isEmailExist){
+      return res.status(500).json({message: 'Referral has already been sent to this email'})
+    }
+
     const referral = await prisma.referral.create({
       data: {
         name,
@@ -32,7 +53,7 @@ app.post('/referrals', async (req, res) => {
         `You are referred by - Adarsh Singh`
     );
 
-    res.status(201).json(referral);
+    res.status(201).json({message: 'Referral sent successfully!', referral});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

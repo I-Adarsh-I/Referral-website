@@ -1,11 +1,15 @@
-import './App.css';
-import NavbarTop from './components/navbar/Navbar';
-import Home from './pages/home/Home';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Home from "./pages/home/Home";
+import Refer from "./pages/refer/Refer";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/referandearn" element={<Refer />} />
+      </Routes>
     </div>
   );
 }
