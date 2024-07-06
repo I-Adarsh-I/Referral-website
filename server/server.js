@@ -35,7 +35,7 @@ app.post('/referrals', async (req, res) => {
     })
 
     if(isEmailExist){
-      return res.status(500).json({message: 'Referral has already been sent to this email'})
+      return res.status(500).json({error: 'Referral has already been sent to this email'})
     }
 
     const referral = await prisma.referral.create({

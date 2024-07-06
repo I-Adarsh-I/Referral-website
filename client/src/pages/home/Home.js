@@ -1,6 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import NavbarTop from '../../components/navbar/Navbar';
-import Hero from '../../components/header/Hero';
+import React, { useRef, useEffect, useState } from "react";
+import NavbarTop from "../../components/navbar/Navbar";
+import Hero from "../../components/header/Hero";
+import Steps from "../../components/steps/Steps";
+import Faq from "../../components/faqs/Faq";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   const navbarRef = useRef(null);
@@ -25,6 +28,9 @@ const Home = () => {
           <Hero />
         </div>
       </div>
+      <Steps />
+      <Faq />
+      <Footer />
     </>
   );
 };

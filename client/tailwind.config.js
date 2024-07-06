@@ -9,6 +9,7 @@ module.exports = withMT({
     extend: {
       colors: {
         primaryColor: '#1A73E8',
+        bgColor: 'EEF5FF',
       },
       fontSize: {
         med: '20px',
